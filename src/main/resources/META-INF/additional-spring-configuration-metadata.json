@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "org.springframework.orm.jpa.vendor.Database",
+    "type": "java.lang.String",
+    "description": "A description for 'org.springframework.orm.jpa.vendor.Database'"
+  },
+  {
+    "name": "spring.jpa.hibernate.show-sql",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.show-sql'"
+  }
+]}
