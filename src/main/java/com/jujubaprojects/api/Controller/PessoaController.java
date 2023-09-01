@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jujubaprojects.api.Model.Cliente;
 import com.jujubaprojects.api.Model.Pessoa;
 import com.jujubaprojects.api.Repositorio.PessoaRepositorio;
 import com.jujubaprojects.api.Services.Servico;
+
+import jakarta.validation.Valid;
 
 @RestController
 //@RequestMapping("/api")
@@ -57,30 +60,28 @@ public class PessoaController {
     }
 
     @GetMapping("/api/acharPessoas")
-    public List<Pessoa> selecionar(){
-        return PessoaRepositorio.findAll();
+    public ResponseEntity<?>  selecionar(){
+        return servico.selecionar();
     }
 
      // List<Pessoa> findByCodigo(int codigo)
    /*Encontra o Código da pessoa que vc queira */
     @GetMapping("/apiCodigo/{codigo}")
-    public Pessoa selecionarCodigo(@PathVariable int codigo){
-        return PessoaRepositorio.findByCodigo(codigo);
+    public ResponseEntity<?> selecionarPeloCodigo(@PathVariable int codigo){
+        return servico.selecionarPeloCodigo(codigo);
         
     }
 
     @PutMapping("/apiEditar")
-    public Pessoa editar(@RequestBody Pessoa pessoa){
-        return PessoaRepositorio.save(pessoa);
+    public ResponseEntity<?>  editar(@RequestBody Pessoa pessoa){
+        return servico.editar(pessoa);
 
     }
 
     @DeleteMapping("/apiDelete/{codigo}")
-    public void remover(@PathVariable int codigo){ 
-  //  acao.findByCodigo(codigo);
-    Pessoa pessoa = selecionarCodigo(codigo);
-
-    PessoaRepositorio.delete(pessoa);
+    public ResponseEntity<?> remover(@PathVariable int codigo){
+    return servico.remover(codigo); 
+   
     }
 
     @GetMapping("/api/contador")
@@ -146,6 +147,11 @@ public class PessoaController {
     public ResponseEntity<?> status(){
         return new ResponseEntity<>(HttpStatus.CREATED);
 
+    }
+
+    @PostMapping("/cliente")
+    public void cliente(@Valid @RequestBody Cliente cliente){
+        
     }
   
 }
