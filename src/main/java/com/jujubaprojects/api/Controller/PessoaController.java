@@ -119,7 +119,7 @@ public class PessoaController {
     /*Mostra as pessoas que terminam com a letra "J" (letra Especifica)*/
       @GetMapping("/api/terminaCom")
      public List<Pessoa> terminaCom(){
-        return PessoaRepositorio.findByNomeEndsWith("o");
+        return PessoaRepositorio.findByNomeEndsWith("a");
 
     }
 
@@ -135,7 +135,7 @@ public class PessoaController {
      */
     @GetMapping("/api/idadeMaiorIgual")
     public List<Pessoa> idadeMaiorIgual(){
-        return PessoaRepositorio.idadeMaiorIgual(25);
+        return PessoaRepositorio.idadeMaiorIgual(30);
 
     }
 

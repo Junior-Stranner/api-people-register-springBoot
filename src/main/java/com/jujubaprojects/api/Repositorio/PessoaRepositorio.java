@@ -24,7 +24,7 @@ public interface PessoaRepositorio extends CrudRepository <Pessoa , Integer>{
 
 
     /*Encontra a/s pessoa/s que comeca com a letra "J" .. 
-    caso existem duas que comecam com a mesma letra , ele ordenará pela idade cererescente*/
+    caso existem duas que comecam com a mesmo Nome , ele ordenará pela idade cererescente*/
     List<Pessoa> findByNomeOrderByIdade(String nome);
 
 
@@ -42,7 +42,7 @@ public interface PessoaRepositorio extends CrudRepository <Pessoa , Integer>{
     int somaIdades();
 
     /*iá conferir se a Idade que eu quero é maior ou igual a das pessoas
-     * da minha lisra
+     * da minha lista
      */
      @Query(value = "SELECT * FROM pessoa WHERE idade >= :idades", nativeQuery = true)
     List<Pessoa> idadeMaiorIgual(@Param("idades") int idade);
