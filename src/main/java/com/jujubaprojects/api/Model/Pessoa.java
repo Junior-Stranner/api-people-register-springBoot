@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+
 public class Pessoa {
     
     //Atributo
@@ -13,6 +14,7 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     private String nome;
+    private String password;
     private int idade;
 
 
@@ -22,17 +24,24 @@ public class Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public int getIdade() {
-        return idade;
-    }
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+  
     public int getCodigo() {
         return codigo;
     }
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public int getIdade() {
+        return idade;
+    }
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 
 

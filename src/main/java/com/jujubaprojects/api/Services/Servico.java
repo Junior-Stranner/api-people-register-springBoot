@@ -63,7 +63,7 @@ public class Servico {
         }else if(pessoa.getNome().equals("")){
             mensagem.setMensagem("è necessário informar um nome");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
-        }else if(pessoa.getIdade() < 0){
+      /* */  }else if(pessoa.getIdade() < 0){
             mensagem.setMensagem("Informe um idade válida");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
         }else{

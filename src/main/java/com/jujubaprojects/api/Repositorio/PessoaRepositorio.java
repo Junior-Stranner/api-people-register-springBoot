@@ -1,6 +1,7 @@
 package com.jujubaprojects.api.Repositorio;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,19 +19,22 @@ public interface PessoaRepositorio extends CrudRepository <Pessoa , Integer>{
    /*Encontra o Código da pessoa que vc queira */
     Pessoa findByCodigo(int codigo);
 
+    /*encontra o nome do usuario no banco */
+    Optional<Pessoa> finByName(String name);
+
 
     /* MOstra todos os  dados em ordem alfabética */
     List<Pessoa> findByOrderByNome();
 
 
+     /*Pega todos os dados que contem a letra "J"(letra Especifica) */
+    List<Pessoa> findByNomeContaining(String termo);
+
     /*Encontra a/s pessoa/s que comeca com a letra "J" .. 
     caso existem duas que comecam com a mesmo Nome , ele ordenará pela idade cererescente*/
     List<Pessoa> findByNomeOrderByIdade(String nome);
 
-
-    /*Pega todos os dados que contem a letra "J"(letra Especifica) */
-    List<Pessoa> findByNomeContaining(String termo);
-
+    
     /*Mostra as pessoas que comecam com a letra "J"  (letra Especifica)*/
     List<Pessoa> findByNomeStartsWith(String termo);
 

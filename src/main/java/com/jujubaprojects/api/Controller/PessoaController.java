@@ -5,13 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.jujubaprojects.api.Model.Cliente;
 import com.jujubaprojects.api.Model.Pessoa;
@@ -21,7 +15,7 @@ import com.jujubaprojects.api.Services.Servico;
 import jakarta.validation.Valid;
 
 @RestController
-//@RequestMapping("/api")
+@RequestMapping("/api")
 public class PessoaController {
 
     @Autowired
@@ -59,7 +53,7 @@ public class PessoaController {
 
     }
 
-    @GetMapping("/api/acharPessoas")
+    @GetMapping("/acharPessoas")
     public ResponseEntity<?>  selecionar(){
         return servico.selecionar();
     }
@@ -106,7 +100,7 @@ public class PessoaController {
     /*Pega todos os dados que contem a letra "J"(letra Especifica) */
      @GetMapping("/api/nomeContem")
     public List<Pessoa> nomeContem(){
-    return PessoaRepositorio.findByNomeContaining("d");
+    return PessoaRepositorio.findByNomeContaining("e");
     }
 
     /*Mostra as pessoas que comecam com a letra "J"  (letra Especifica)*/
