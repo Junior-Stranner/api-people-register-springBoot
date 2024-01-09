@@ -3,10 +3,12 @@ package com.jujubaprojects.api.Services;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.jujubaprojects.api.Authrntication.PessoaAuthenticated;
 import com.jujubaprojects.api.Repositorio.PessoaRepositorio;
 
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService{
 
     private final PessoaRepositorio pessoaRepositorio;
